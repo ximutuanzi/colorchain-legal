@@ -21,19 +21,26 @@
   .meta{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0}
   .meta div{display:flex;gap:10px;font-size:14.5px;line-height:2}
   .meta b{min-width:96px;color:var(--sub);font-weight:600}
-  .fill{color:#c0392b;font-weight:700}
   .note{background:#fff4e6;border-left:4px solid #e8a463;padding:12px 14px;border-radius:8px;font-size:14.5px;margin:16px 0}
   .en{color:#5b4c40}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#fbf3e6;color:#5b4a3a;font-weight:600}
+  code{font-family:ui-monospace,Consolas,monospace;font-size:13px;background:#f6ecdd;padding:1px 5px;border-radius:4px}
+  a{color:#c2603a}
   hr{border:0;border-top:1px dashed var(--line);margin:34px 0}
   footer{margin-top:40px;color:var(--sub);font-size:13px}
-  @media print{body{background:#fff;padding:0}.meta,.note{border-color:#ccc}}
+  .back{position:fixed;right:16px;bottom:16px;background:#e8825a;color:#fff;border:0;border-radius:999px;
+    padding:12px 18px;font-size:14px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer;display:none}
+  .back.show{display:block}
+  @media print{body{background:#fff;padding:0}.meta,.note{border-color:#ccc}.back{display:none!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
 
 <h1>隐私政策</h1>
-<p class="sub">《一路拆到底》（Color Chain）· 生效日期：2026 年 11 月 12 日 · 更新日期：2026 年 11 月 12 日</p>
+<p class="sub">《一路拆到底》（Color Chain）· 版本 0.9.1-test 及以后 · 生效日期：2026 年 11 月 12 日 · 更新日期：2026 年 11 月 12 日（第 2 版）</p>
 
 <div class="meta">
   <div><b>运营主体</b>陈亮林</div>
@@ -43,58 +50,118 @@
 </div>
 
 <div class="note">
-  一句话版本：<b>这是一款单机游戏，不注册账号、不收集个人信息，所有进度只存在你自己的设备上。</b>
+  一句话版本：<b>游戏本身不注册账号、不收集你的个人信息；启动时通过 TapTap 开发者服务完成一次账号登录与实名认证，用于未成年人保护。你的身份证号不会经过本游戏。</b>
 </div>
 
 <h2>一、我们收集哪些信息</h2>
-<p><b>我们不收集、不上传任何个人信息。</b>具体来说：</p>
+
+<h3>1.1 游戏本体（不收集）</h3>
+<p>除下述 TapTap 登录与实名认证外，本游戏<b>不收集任何个人信息</b>：</p>
 <ul>
-  <li>没有账号体系，不需要手机号、邮箱或第三方登录；</li>
-  <li>不读取通讯录、短信、位置、相册、麦克风、摄像头；</li>
-  <li>不采集设备标识符（IMEI / OAID / IDFA）、不采集剪贴板；</li>
-  <li>不接入统计分析、崩溃上报或广告 SDK（如后续接入，会先更新本政策并列明 SDK 名称与用途）。</li>
+  <li>不要求你填写手机号、邮箱、姓名或身份证号；</li>
+  <li>不读取通讯录、短信、位置、相册、麦克风、摄像头、剪贴板；</li>
+  <li>不采集广告标识符（IMEI / OAID / IDFA），不做用户画像，不投放广告；</li>
+  <li>不接入统计分析、崩溃上报类 SDK。</li>
 </ul>
+
+<h3>1.2 通过 TapTap 开发者服务收集的信息</h3>
+<p>为了让未成年人保护系统能够识别账号与年龄段，本游戏接入了 TapTap 登录与合规认证（防沉迷）服务。在你授权后，我们会获得：</p>
+<table>
+  <tr><th>信息类型</th><th>具体内容</th><th>用途</th><th>是否由本游戏存储</th></tr>
+  <tr>
+    <td>账号标识</td>
+    <td><code>openId</code>、<code>unionId</code>、访问令牌</td>
+    <td>识别「你是同一个玩家」，维持登录状态</td>
+    <td>仅缓存在本机，用于下次启动免登录；不上传至我方服务器</td>
+  </tr>
+  <tr>
+    <td>公开资料</td>
+    <td>TapTap 昵称、头像</td>
+    <td>在登录界面显示当前账号，便于你确认登录的是哪个账号</td>
+    <td>否，仅内存中显示</td>
+  </tr>
+  <tr>
+    <td>实名与年龄</td>
+    <td>是否已实名、年龄段（未满 8 / 8–16 / 16–18 / 成年）、剩余可玩时长</td>
+    <td>执行国家新闻出版署的未成年人游戏时段与时长限制</td>
+    <td>否，由 TapTap 服务实时返回</td>
+  </tr>
+</table>
+
+<div class="note">
+  <b>关于身份证号：</b>实名认证所需的姓名与身份证号，由你在 TapTap 官方提供的实名页面直接提交给 TapTap（易玩（上海）网络科技有限公司），<b>本游戏既不读取、也不存储、更不传输你的身份证号</b>，我们只收到「已实名 / 未实名」和年龄段这样的结论性结果。
+</div>
+
+<h3>1.3 为完成上述功能而产生的设备信息</h3>
+<p>在登录与实名校验过程中，TapTap SDK 会读取必要的设备与网络信息（设备型号、操作系统版本、网络连接类型），用于安全风控、判断网络异常与故障排查。这些信息由 TapTap 处理，本游戏不单独留存。</p>
 
 <h2>二、保存在你设备上的数据</h2>
 <p>为了让你下次打开还能接着玩，游戏会在本机保存以下数据（仅存储在你的设备内，不会上传）：</p>
 <ul>
   <li>关卡进度与星级评价；</li>
   <li>生存/无尽模式的最好成绩；</li>
-  <li>设置项（音效开关、虚拟按键位置与大小、语言、是否看过新手引导）。</li>
+  <li>设置项（音效开关、虚拟按键位置与大小、语言、是否看过新手引导）；</li>
+  <li>TapTap 登录状态缓存（用于下次启动免去重复授权）。</li>
 </ul>
-<p>这些数据在应用内通过系统提供的本地存储（WebView localStorage）保存。你可以随时删除：</p>
+<p>这些数据通过系统提供的本地存储（WebView localStorage / 应用私有目录）保存。你可以随时删除：</p>
 <ul>
   <li>游戏内「设置 → 清空进度」；</li>
+  <li>游戏内「设置 → 退出登录」，清除本机登录缓存；</li>
   <li>或在系统设置中清除本应用的数据 / 卸载应用。</li>
 </ul>
 
 <h2>三、申请的系统权限</h2>
 <div class="meta">
-  <div><b>网络访问</b><span>仅用于后续可能提供的可选广告或更新检查；当前版本不发起任何网络请求。</span></div>
-  <div><b>振动</b><span>用于操作反馈，可在游戏设置中关闭。</span></div>
+  <div><b>网络访问（INTERNET）</b><span>用于连接 TapTap 服务完成账号登录、实名认证与未成年人时段校验。游戏玩法本身无需联网，但未登录状态下无法进入游戏。</span></div>
+  <div><b>查看网络状态（ACCESS_NETWORK_STATE）</b><span>用于在登录前判断网络是否可用，网络异常时给出明确提示，而不是一直转圈。</span></div>
 </div>
-<p>除上述权限外，本应用不申请定位、相机、麦克风、通讯录、存储读写等其他权限。</p>
+<p>除上述两项外，本应用不申请定位、相机、麦克风、通讯录、存储读写、短信、通话记录等任何其他权限。</p>
+<p>游戏内的触摸震动反馈依赖系统能力，本版本未单独申请振动权限；若你的设备因此没有震动，属于预期行为，不影响玩法。</p>
 
 <h2>四、第三方服务</h2>
-<p>当前版本<b>不包含任何第三方 SDK</b>，也不向任何第三方共享、转让或公开披露你的信息。</p>
-<p>若未来接入广告或统计服务，我们会在本政策中列明服务提供方名称、收集的信息类型与用途，并在游戏内首次启动时再次征得你的同意。</p>
+<p>本版本包含以下 TapTap 官方 SDK，均由易玩（上海）网络科技有限公司提供：</p>
+<table>
+  <tr><th>SDK 名称</th><th>提供方</th><th>收集的信息</th><th>用途</th><th>隐私政策</th></tr>
+  <tr>
+    <td>TapTap 登录（TapTap Login）</td>
+    <td>易玩（上海）网络科技有限公司</td>
+    <td>openId、unionId、访问令牌、昵称、头像</td>
+    <td>账号登录，确认玩家身份</td>
+    <td><a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a></td>
+  </tr>
+  <tr>
+    <td>合规认证 / 防沉迷（TapTap Compliance）</td>
+    <td>易玩（上海）网络科技有限公司</td>
+    <td>实名状态、年龄段、游戏时长、必要的设备与网络信息</td>
+    <td>落实未成年人游戏时段与时长限制</td>
+    <td><a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a></td>
+  </tr>
+</table>
+<p>除上述服务外，我们不向任何第三方共享、转让或公开披露你的信息，也不存在广告、支付、统计类的数据共享。</p>
+<p><b>本游戏不含内购、不含广告、不含任何付费入口。</b></p>
 
 <h2>五、未成年人保护</h2>
-<p>本游戏内容适合全年龄，不含暴力、色情、赌博等元素，且<b>不含任何付费内容</b>（无内购、无广告），因此不存在未成年人消费情形。</p>
-<p>我们不会主动收集未成年人的个人信息。若你是未满 14 周岁的儿童，请在监护人陪同下使用本游戏；如监护人发现我们持有相关信息（当前版本不会发生），可联系我们删除。</p>
+<p>本游戏已接入实名认证与未成年人防沉迷系统，并遵守《关于进一步严格管理切实防止未成年人沉迷网络游戏的通知》：</p>
+<ul>
+  <li>未完成实名认证的账号无法进入游戏；</li>
+  <li>未满 18 周岁的玩家，仅可在<b>周五、周六、周日及法定节假日的 20:00–21:00</b> 游玩，其余时间将被拦截并提示可玩时段；</li>
+  <li>本游戏无内购、无充值、无虚拟货币交易，不存在未成年人付费情形，因此不涉及充值限额。</li>
+</ul>
+<p>若你是未满 14 周岁的儿童，请在监护人陪同下使用本游戏。监护人如需了解或删除相关信息，可通过下方邮箱联系我们；涉及 TapTap 账号本身的实名信息，也可通过 TapTap 的隐私渠道处理。</p>
 
 <h2>六、数据安全与存储期限</h2>
-<p>所有数据仅保存在你的设备本地，存储期限为「直到你删除或卸载应用」。由于我们不上传、不留存任何数据，服务器端不存在你的个人信息。</p>
+<p>本地存档保存在你的设备中，存储期限为「直到你删除或卸载应用」。我们不运营用于存储玩家个人信息的服务器，账号与实名信息由 TapTap 按其隐私政策保存。登录令牌通过加密通道（HTTPS）传输。</p>
 
 <h2>七、你的权利</h2>
 <ul>
-  <li><b>删除</b>：设置内「清空进度」，或系统清除应用数据；</li>
-  <li><b>撤回同意</b>：卸载应用即视为撤回；</li>
+  <li><b>查看</b>：本政策随时可在游戏内「设置 → 隐私政策」查看；</li>
+  <li><b>删除本地数据</b>：设置内「清空进度」，或系统清除应用数据；</li>
+  <li><b>退出登录 / 撤回授权</b>：设置内「退出登录」清除本机登录缓存；卸载应用即视为撤回；</li>
   <li><b>咨询与投诉</b>：通过下方邮箱联系我们，我们会在 15 个工作日内答复。</li>
 </ul>
 
 <h2>八、本政策的更新</h2>
-<p>当游戏功能变化（例如新增联网、广告、内购）时，我们会更新本政策并在应用内提示。重大变更会再次征得你的同意。</p>
+<p>当游戏功能变化（例如新增服务、调整收集范围）时，我们会更新本政策并在应用内重新征得你的同意。重大变更会以弹窗形式单独提示，不会默认勾选。</p>
 
 <h2>九、联系我们</h2>
 <p>运营主体：陈亮林<br>
@@ -104,37 +171,52 @@
 <hr>
 
 <h1 class="en">Privacy Policy (English)</h1>
-<p class="sub en">“Color Chain” (一路拆到底) · Effective date: November 12, 2026</p>
+<p class="sub en">“Color Chain” (一路拆到底) · Applies to version 0.9.1-test and later · Effective November 12, 2026 · Updated November 12, 2026 (v2)</p>
 
 <p class="en"><b>Operator:</b> Chen Lianglin · <b>Contact:</b> 3246635175@qq.com</p>
 
-<p class="en"><b>Short version:</b> this is an offline single-player game. It has no accounts and collects no personal data. Your progress stays on your own device.</p>
+<p class="en"><b>Short version:</b> the game itself has no account system and collects no personal data from you. At launch it uses TapTap developer services to sign you in and to verify your real-name status for child-protection purposes. Your ID card number never passes through this game.</p>
 
-<h3 class="en">1. Data we collect</h3>
-<p class="en">None. We do not ask for a phone number, email, or social login; we do not access contacts, messages, location, photos, microphone, or camera; we do not collect advertising identifiers; and this build includes no analytics, crash-reporting, or ad SDKs.</p>
+<h3 class="en">1. Information we collect</h3>
+<p class="en"><b>1.1 The game itself — none.</b> We do not ask for your phone number, email, name or ID number; we do not access contacts, messages, location, photos, microphone, camera or clipboard; we do not collect advertising identifiers; and this build contains no analytics, crash-reporting or advertising SDKs.</p>
+<p class="en"><b>1.2 Through TapTap developer services.</b> With your authorization we receive: (a) account identifiers — <code>openId</code>, <code>unionId</code> and an access token, used to recognise you across launches; (b) public profile — TapTap nickname and avatar, displayed only so you can confirm which account is signed in; (c) real-name status and age bracket (under 8 / 8–16 / 16–18 / adult) plus remaining play time, used solely to enforce the Chinese minors' play-time rules. None of these are stored on any server operated by us.</p>
+<p class="en"><b>1.3 ID card number.</b> The name and ID number required for real-name verification are submitted by you directly to TapTap (Yiwan (Shanghai) Network Technology Co., Ltd.) through TapTap's own verification screen. This game does not read, store or transmit your ID number; we only receive the conclusion (“verified / not verified” and the age bracket).</p>
+<p class="en"><b>1.4 Device information.</b> During sign-in and verification the TapTap SDK reads necessary device and network details (model, OS version, connection type) for security and troubleshooting. This is processed by TapTap, not retained by us.</p>
 
 <h3 class="en">2. Data stored on your device</h3>
-<p class="en">Level progress and star ratings, best survival/endless scores, and settings (sound, on-screen pad layout, language, tutorial seen). This is kept in the app's local storage and is never uploaded. You can erase it via “Settings → Clear progress” or by clearing the app's data / uninstalling.</p>
+<p class="en">Level progress and star ratings, best survival/endless scores, settings (sound, on-screen pad layout, language, tutorial seen), and a cached TapTap sign-in state so you need not authorize again. All of it stays in the app's private storage and is never uploaded. You can erase it via “Settings → Clear progress”, “Settings → Sign out”, or by clearing app data / uninstalling.</p>
 
 <h3 class="en">3. Permissions</h3>
-<p class="en">Network access is declared only for possible future optional ads or update checks; the current version makes no network requests. Vibration is used for touch feedback and can be disabled in Settings.</p>
+<p class="en">Network access (INTERNET) is used to reach TapTap services for sign-in, real-name verification and play-time checks; gameplay itself needs no network, but the game cannot be entered while signed out. Network state access (ACCESS_NETWORK_STATE) lets us tell you clearly when the network is unavailable instead of spinning indefinitely. We request no location, camera, microphone, contacts, storage, SMS or call-log permissions. Vibration feedback relies on system capability; this build does not declare a vibration permission, so a device may not vibrate — that does not affect gameplay.</p>
 
 <h3 class="en">4. Third parties</h3>
-<p class="en">This build contains no third-party SDKs and shares no data with anyone.</p>
+<p class="en">This build includes two TapTap SDKs, both provided by Yiwan (Shanghai) Network Technology Co., Ltd.: <b>TapTap Login</b> (collects openId, unionId, access token, nickname, avatar; used for sign-in) and <b>TapTap Compliance</b> (collects real-name status, age bracket, play time and necessary device/network details; used for minors' play-time limits). Their privacy policy: <a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a>. Beyond these, we share no data with anyone. <b>The game contains no in-app purchases, no ads and no payment entry of any kind.</b></p>
 
 <h3 class="en">5. Children</h3>
-<p class="en">The game is suitable for all ages and contains no purchases. We do not knowingly collect personal information from children. If you are under 14, please use the game with a guardian.</p>
+<p class="en">The game uses real-name verification and a minors' anti-addiction system. Accounts without completed verification cannot enter the game. Players under 18 may play only between 20:00 and 21:00 on Fridays, Saturdays, Sundays and statutory holidays; at other times access is blocked with the allowed window shown. There are no purchases, so no spending limits apply. If you are under 14, please play with a guardian.</p>
 
 <h3 class="en">6. Security and retention</h3>
-<p class="en">Everything stays on your device until you delete it. We hold no server-side copy of your data.</p>
+<p class="en">Local saves remain on your device until you delete them or uninstall. We operate no server that stores players' personal data; account and verification data are held by TapTap under their policy. Sign-in tokens are transmitted over HTTPS.</p>
 
 <h3 class="en">7. Your rights</h3>
-<p class="en">You can delete your data at any time (Settings → Clear progress, or clear app data). For any question, email us and we will reply within 15 business days.</p>
+<p class="en">You may view this policy anytime in “Settings → Privacy Policy”; delete local data via “Clear progress” or by clearing app data; sign out to clear the cached token; and contact us at the email above for any question or complaint, answered within 15 business days.</p>
 
 <h3 class="en">8. Changes</h3>
-<p class="en">If the game later adds online features, ads, or purchases, we will update this policy and ask for your consent again in the app.</p>
+<p class="en">If features change (new services or different data scope), we will update this policy and ask for your consent again in the app. Material changes are shown in a separate prompt and are never pre-ticked.</p>
 
-<footer>© 2026 陈亮林. 本页面可公开访问，无需登录。</footer>
+<footer>© 2026 陈亮林. 本页面可公开访问，无需登录。 / Publicly accessible, no login required.</footer>
 </div>
+
+<button class="back" id="backBtn" onclick="goBack()">← 返回游戏 / Back</button>
+<script>
+  // 从游戏内打开时显示返回按钮；若被直接访问（无历史），回首页
+  if (window.history.length > 1) {
+    document.getElementById('backBtn').classList.add('show');
+  }
+  function goBack() {
+    if (window.history.length > 1) window.history.back();
+    else window.location.href = 'index.html';
+  }
+</script>
 </body>
 </html>
