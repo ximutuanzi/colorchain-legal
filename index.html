@@ -121,21 +121,23 @@
 <p>除上述两项外，本应用不申请定位、相机、麦克风、通讯录、存储读写、短信、通话记录等任何其他权限。</p>
 <p>游戏内的触摸震动反馈依赖系统能力，本版本未单独申请振动权限；若你的设备因此没有震动，属于预期行为，不影响玩法。</p>
 
-<h2>四、第三方服务</h2>
-<p>本版本包含以下 TapTap 官方 SDK，均由易玩（上海）网络科技有限公司提供：</p>
+<h2>四、第三方 SDK 与《第三方信息共享清单》</h2>
+<p>下表即本游戏的《第三方信息共享清单》，逐一列明所接入 SDK 收集使用个人信息的<b>目的</b>、<b>方式与时机</b>、<b>范围</b>。本版本仅接入以下 TapTap 官方 SDK，均由易玩（上海）网络科技有限公司提供：</p>
 <table>
-  <tr><th>SDK 名称</th><th>提供方</th><th>收集的信息</th><th>用途</th><th>隐私政策</th></tr>
+  <tr><th>SDK 名称</th><th>提供方</th><th>收集的信息（范围）</th><th>收集方式与时机</th><th>用途（目的）</th><th>隐私政策</th></tr>
   <tr>
     <td>TapTap 登录（TapTap Login）</td>
     <td>易玩（上海）网络科技有限公司</td>
     <td>openId、unionId、访问令牌、昵称、头像</td>
+    <td>用户点击「同意并继续」后，由 SDK 在登录授权时经 HTTPS 获取</td>
     <td>账号登录，确认玩家身份</td>
     <td><a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a></td>
   </tr>
   <tr>
     <td>合规认证 / 防沉迷（TapTap Compliance）</td>
     <td>易玩（上海）网络科技有限公司</td>
-    <td>实名状态、年龄段、游戏时长、必要的设备与网络信息</td>
+    <td>实名状态、年龄段、游戏时长、设备型号、系统版本、设备内存、CPU 信息、网络类型（含 WiFi 信息）、Android ID</td>
+    <td>用户同意后，SDK 初始化时读取一次设备与网络信息；登录授权时再次读取 Android ID</td>
     <td>落实未成年人游戏时段与时长限制</td>
     <td><a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a></td>
   </tr>
@@ -193,8 +195,13 @@
 <h3 class="en">3. Permissions</h3>
 <p class="en">Network access (INTERNET) is used to reach TapTap services for sign-in, real-name verification and play-time checks; gameplay itself needs no network, but the game cannot be entered while signed out. Network state access (ACCESS_NETWORK_STATE) lets us tell you clearly when the network is unavailable instead of spinning indefinitely. We request no location, camera, microphone, contacts, storage, SMS or call-log permissions. Vibration feedback relies on system capability; this build does not declare a vibration permission, so a device may not vibrate — that does not affect gameplay.</p>
 
-<h3 class="en">4. Third parties</h3>
-<p class="en">This build includes two TapTap SDKs, both provided by Yiwan (Shanghai) Network Technology Co., Ltd.: <b>TapTap Login</b> (collects openId, unionId, access token, nickname, avatar; used for sign-in) and <b>TapTap Compliance</b> (collects real-name status, age bracket, play time and necessary device/network details; used for minors' play-time limits). Their privacy policy: <a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a>. Beyond these, we share no data with anyone. <b>The game contains no in-app purchases, no ads and no payment entry of any kind.</b></p>
+<h3 class="en">4. Third-party SDKs and the list of shared information</h3>
+<p class="en">The following is this game's <b>list of third-party information sharing</b>: it states, for every SDK we integrate, the <b>purpose</b>, the <b>manner and timing</b> of collection, and the <b>scope</b> of personal information collected. This build includes only two TapTap SDKs, both provided by Yiwan (Shanghai) Network Technology Co., Ltd.:</p>
+<ul class="en">
+  <li><b>TapTap Login</b> — scope: openId, unionId, access token, nickname, avatar. Manner and timing: after you tap Agree, the SDK fetches them over HTTPS during sign-in authorisation. Purpose: signing you in and identifying your account.</li>
+  <li><b>TapTap Compliance</b> — scope: real-name status, age bracket, play time, device model, OS version, device memory, CPU information, network type (including WiFi information), Android ID. Manner and timing: after you agree, the SDK reads device and network details once at initialisation and reads Android ID again when you start sign-in. Purpose: enforcing the play-time and duration limits required for minors.</li>
+</ul>
+<p class="en">Their privacy policy: <a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a>. Beyond these, we share no data with anyone. <b>The game contains no in-app purchases, no ads and no payment entry of any kind.</b></p>
 
 <h3 class="en">5. Children</h3>
 <p class="en">The game uses real-name verification and a minors' anti-addiction system. Accounts without completed verification cannot enter the game. Players under 18 may play only between 20:00 and 21:00 on Fridays, Saturdays, Sundays and statutory holidays; at other times access is blocked with the allowed window shown. There are no purchases, so no spending limits apply. If you are under 14, please play with a guardian.</p>
