@@ -60,7 +60,7 @@
 <ul>
   <li>不要求你填写手机号、邮箱、姓名或身份证号；</li>
   <li>不读取通讯录、短信、位置、相册、麦克风、摄像头、剪贴板；</li>
-  <li>不采集广告标识符（IMEI / OAID / IDFA），不做用户画像，不投放广告；</li>
+  <li>本游戏自身不采集广告标识符（IMEI / OAID / IDFA），不做用户画像，不投放广告；TapTap SDK 读取的 GAID 仅用于安全风控（见 1.3），不用于广告或画像；</li>
   <li>不接入统计分析、崩溃上报类 SDK。</li>
 </ul>
 
@@ -176,14 +176,14 @@
 <hr>
 
 <h1 class="en">Privacy Policy (English)</h1>
-<p class="sub en">“Color Chain” (一路拆到底) · Applies to version 0.9.1-test and later · Effective November 12, 2026 · Updated November 13, 2026 (v3)</p>
+<p class="sub en">“Color Chain” (一路拆到底) · Applies to version 0.9.1-test and later · Effective November 12, 2026 · Updated November 20, 2026 (v5)</p>
 
 <p class="en"><b>Operator:</b> Chen Lianglin · <b>Contact:</b> 3246635175@qq.com</p>
 
 <p class="en"><b>Short version:</b> the game itself has no account system and collects no personal data from you. At launch it uses TapTap developer services to sign you in and to verify your real-name status for child-protection purposes. Your ID card number never passes through this game.</p>
 
 <h3 class="en">1. Information we collect</h3>
-<p class="en"><b>1.1 The game itself — none.</b> We do not ask for your phone number, email, name or ID number; we do not access contacts, messages, location, photos, microphone, camera or clipboard; we do not collect advertising identifiers; and this build contains no analytics, crash-reporting or advertising SDKs.</p>
+<p class="en"><b>1.1 The game itself — none.</b> We do not ask for your phone number, email, name or ID number; we do not access contacts, messages, location, photos, microphone, camera or clipboard; the game itself collects no advertising identifiers (the GAID read by the TapTap SDK is used solely for security checks — see 1.4 — never for ads or profiling); and this build contains no analytics, crash-reporting or advertising SDKs.</p>
 <p class="en"><b>1.2 Through TapTap developer services.</b> With your authorization we receive: (a) account identifiers — <code>openId</code>, <code>unionId</code> and an access token, used to recognise you across launches; (b) public profile — TapTap nickname and avatar, displayed only so you can confirm which account is signed in; (c) real-name status and age bracket (under 8 / 8–16 / 16–18 / adult) plus remaining play time, used solely to enforce the Chinese minors' play-time rules. None of these are stored on any server operated by us.</p>
 <p class="en"><b>1.3 ID card number.</b> The name and ID number required for real-name verification are submitted by you directly to TapTap (Yiwan (Shanghai) Network Technology Co., Ltd.) through TapTap's own verification screen. This game does not read, store or transmit your ID number; we only receive the conclusion (“verified / not verified” and the age bracket).</p>
 <p class="en"><b>1.4 Device information.</b> During sign-in and verification the TapTap SDK reads the following device and network details for security checks, connectivity detection and troubleshooting: device model, OS version, device memory, CPU information, connection type (including WiFi information), Android ID and <b>GAID (Google Advertising ID)</b>. These are processed by TapTap; this game neither retains them nor writes them to any local file.</p>
@@ -197,8 +197,8 @@
 <h3 class="en">4. Third-party SDKs and the list of shared information</h3>
 <p class="en">The following is this game's <b>list of third-party information sharing</b>: it states, for every SDK we integrate, the <b>purpose</b>, the <b>manner and timing</b> of collection, and the <b>scope</b> of personal information collected. This build includes only two TapTap SDKs, both provided by Yiwan (Shanghai) Network Technology Co., Ltd.:</p>
 <ul class="en">
-  <li><b>TapTap Login</b> — scope: openId, unionId, access token, nickname, avatar. Manner and timing: after you tap Agree, the SDK fetches them over HTTPS during sign-in authorisation. Purpose: signing you in and identifying your account.</li>
-  <li><b>TapTap Compliance</b> — scope: real-name status, age bracket, play time, device model, OS version, device memory, CPU information, network type (including WiFi information), Android ID. Manner and timing: after you agree, the SDK reads device and network details once at initialisation and reads Android ID again when you start sign-in. Purpose: enforcing the play-time and duration limits required for minors.</li>
+  <li><b>TapTap Login</b> — scope: openId, unionId, access token, nickname, avatar, device model, OS version, device memory, CPU information, network type (including WiFi information), Android ID, GAID (Google Advertising ID). Manner and timing: after you tap Agree, the SDK fetches the account fields over HTTPS during sign-in authorisation and reads device and network details once at initialisation. Purpose: signing you in and identifying your account.</li>
+  <li><b>TapTap Compliance</b> — scope: real-name status, age bracket, play time, device model, OS version, device memory, CPU information, network type (including WiFi information), Android ID, GAID (Google Advertising ID). Manner and timing: after you agree, the SDK reads device and network details once at initialisation and reads Android ID and GAID again when you start sign-in (GAID exists only on devices with Google Play services). Purpose: enforcing the play-time and duration limits required for minors.</li>
 </ul>
 <p class="en">Their privacy policy: <a href="https://www.taptap.cn/privacy-policy" target="_blank" rel="noopener">taptap.cn/privacy-policy</a>. Beyond these, we share no data with anyone. <b>The game contains no in-app purchases, no ads and no payment entry of any kind.</b></p>
 
